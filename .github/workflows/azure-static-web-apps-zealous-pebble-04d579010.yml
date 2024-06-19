@@ -23,7 +23,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.19.1'
+          node-version: '16.x'  # Set to use Node.js 16.x as per the suggestion
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli@16.2.10  # Install the specified version of Angular CLI
 
       - name: Clear npm cache
         run: npm cache clean --force
