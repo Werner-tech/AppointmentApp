@@ -20,10 +20,13 @@ jobs:
           submodules: true
           lfs: false
 
+      - name: Install apt-utils
+        run: sudo apt-get update && sudo apt-get install -y apt-utils
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '18.x'
 
       - name: Install dependencies
         run: npm install --force  # Using --force to bypass peer dependency conflicts
@@ -42,12 +45,4 @@ jobs:
           output_location: "dist/my-app"  # Adjust based on your Angular output configuration
 
   close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_PEBBLE_04D579010 }}
-          action: "close"
+    if: github.event_name == 'pull_request' && github.event.ac
