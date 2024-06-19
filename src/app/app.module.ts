@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppointmentService } from './services/appointment.service';
@@ -20,30 +20,23 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    EditAppointmentDialogComponent,
-    AppointmentsComponent,
-    SpinnerComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatIconModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-  ],
-  providers: [AppointmentService, provideCharts(withDefaultRegisterables())],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        EditAppointmentDialogComponent,
+        AppointmentsComponent,
+        SpinnerComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatIconModule,
+        FormsModule,
+        MatProgressSpinnerModule], providers: [AppointmentService, provideCharts(withDefaultRegisterables()), provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
