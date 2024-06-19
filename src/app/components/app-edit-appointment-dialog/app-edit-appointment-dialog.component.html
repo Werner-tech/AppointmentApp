@@ -1,0 +1,31 @@
+<div class="edit-dialog-container">
+  <h2 mat-dialog-title>{{ title }}</h2>
+  <div mat-dialog-content>
+    <form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Client Name" [(ngModel)]="appointment.clientName" name="clientName" required>
+        <mat-error *ngIf="appointmentForm.submitted && appointmentForm.controls['clientName']?.errors?.['required']">
+          Client Name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Appointment Date" [(ngModel)]="appointment.appointmentDate" name="appointmentDate" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="appointmentForm.submitted && appointmentForm.controls['appointmentDate']?.errors?.['required']">
+          Appointment Date is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea matInput placeholder="Notes" [(ngModel)]="appointment.notes" name="notes" required class="custom-textarea"></textarea>
+        <mat-error *ngIf="appointmentForm.submitted && appointmentForm.controls['notes']?.errors?.['required']">
+          Notes are required
+        </mat-error>
+      </mat-form-field>
+      <div mat-dialog-actions>
+        <button mat-raised-button color="basic" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!appointmentForm.valid" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

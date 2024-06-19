@@ -1,0 +1,22 @@
+::ng-deep .edit-dialog-container {
+  width: 1000px !important;
+  padding: 8px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+::ng-deep .mat-mdc-dialog-actions {
+  justify-content: space-between;
+}
+
+
+::ng-deep .mat-mdc-dialog-actions button {
+  margin: 5px;
+  font-size: 16px;
+}
+
+.custom-textarea {
+  min-height: 100px !important;
+}

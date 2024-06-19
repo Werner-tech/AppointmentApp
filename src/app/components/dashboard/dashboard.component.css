@@ -1,0 +1,58 @@
+.dashboard-container {
+    padding: 20px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 150px;
+    margin-top: 100px;
+}
+
+.stat {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    background: #3f51b5;
+    padding: 20px;
+    margin: 0 10px;
+    border: 4px solid !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    font-weight: 500;
+}
+
+.stat:hover {
+    border-radius: 50px;
+    border-color: white !important;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.stat h3 {
+    margin-top: 0;
+    font-weight: 500 !important;
+}
+
+.charts-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.chart-container {
+    width: 45%;
+    margin: 10px;
+}
+
+canvas {
+    max-height: 400px !important;
+    width: 100%;
+}
+
+
+.flex-title {
+    display: flex;
+    justify-content: space-between;
+}

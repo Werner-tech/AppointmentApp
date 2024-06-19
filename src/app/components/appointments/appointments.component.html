@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Appointments</h2>
+  <button mat-raised-button color="primary" class="add-button" (click)="openAddModal()">Add Appointment</button>
+  <div class="table-container">
+    <table mat-table [dataSource]="appointments">
+
+      <ng-container matColumnDef="clientName">
+        <th mat-header-cell *matHeaderCellDef>Client Name</th>
+        <td mat-cell *matCellDef="let appointment">{{ appointment.clientName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="appointmentDate">
+        <th mat-header-cell *matHeaderCellDef>Appointment Date</th>
+        <td mat-cell *matCellDef="let appointment">{{ appointment.appointmentDate | date: 'short' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="notes">
+        <th mat-header-cell *matHeaderCellDef>Notes</th>
+        <td mat-cell *matCellDef="let appointment">{{ appointment.notes }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let appointment">
+          <button mat-icon-button (click)="editAppointment(appointment)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteAppointment(appointment.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['clientName', 'appointmentDate', 'notes', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['clientName', 'appointmentDate', 'notes', 'actions'];"></tr>
+    </table>
+  </div>
+</div>

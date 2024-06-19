@@ -1,0 +1,68 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  position: relative;
+}
+
+h2 {
+  margin: 0;
+}
+
+.table-container {
+  flex: 1;
+  overflow: auto;
+  margin-top: 60px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.actions {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.actions button {
+  margin-right: 5px;
+}
+
+.actions button:last-child {
+  margin-right: 0;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.add-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.mdc-data-table__row:last-child .mat-mdc-cell {
+  border-bottom:  1px solid #ddd !important
+}
