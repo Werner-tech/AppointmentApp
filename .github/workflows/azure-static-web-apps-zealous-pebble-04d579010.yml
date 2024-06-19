@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Ensure this version matches your project requirements
+          node-version: '18.9.11'  # Updated to specific version required by your Angular packages
 
       - name: Install dependencies
         run: npm install --force  # Using --force to bypass peer dependency conflicts
