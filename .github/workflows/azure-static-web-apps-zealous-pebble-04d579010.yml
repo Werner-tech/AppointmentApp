@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # This will use the latest Node.js 18.x.x version available
+          node-version: '18'  # Ensure this version matches your project requirements
 
       - name: Verify Node.js Version
         run: node -v  # Check the Node.js version to ensure it's correctly set
