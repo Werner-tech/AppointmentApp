@@ -19,12 +19,18 @@ import { FormsModule } from '@angular/forms';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { LoginComponent } from './components/login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({ declarations: [
         AppComponent,
         EditAppointmentDialogComponent,
         AppointmentsComponent,
         SpinnerComponent,
+        LoginComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
@@ -38,5 +44,9 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
         MatTableModule,
         MatIconModule,
         FormsModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatSnackBarModule,
+        MatTooltipModule,
         MatProgressSpinnerModule], providers: [AppointmentService, provideCharts(withDefaultRegisterables()), provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

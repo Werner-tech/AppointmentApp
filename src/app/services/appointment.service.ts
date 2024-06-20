@@ -7,7 +7,7 @@ import { Appointment } from '../models/Appointment.model';
   providedIn: 'root'
 })
 export class AppointmentService {
-  // private apiUrl = 'https://localhost:7003/api/Appointments';
+ // private apiUrl = 'https://localhost:7003/api/Appointments';
   private apiUrl = 'https://appointmentapibackend.azurewebsites.net/api/Appointments';
 
   constructor(private http: HttpClient) { }

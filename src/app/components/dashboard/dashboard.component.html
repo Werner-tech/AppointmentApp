@@ -1,33 +1,73 @@
-<div class="dashboard-container">
-    <div class="flex-title">
-        <h2>Dashboard</h2>
-        <button mat-raised-button color="primary" (click)="navigateToAppointments()">View Appointments</button>
-    </div>
+<mat-toolbar color="primary">
+  <span>Dashboard</span>
+  <span class="spacer"></span>
+  <span class="user-initial">{{ usernameInitial }}</span>
+  <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
+<div class="flex-title">
+  <button mat-raised-button color="accent" class="view-appointments-button" (click)="navigateToAppointments()">Manage Appointments</button>
+</div>
+<div class="container">
+  <div class="dashboard-container">
 
     <div class="stats-container">
-        <div (click)="navigateToAppointments()" class="stat">
+      <div (mouseenter)="showList('total')" (mouseleave)="hideList('total')" class="stat">
+        <div class="stat-content" [ngClass]="{'flipped': showTotalList}">
+          <div class="stat-front" >
             <h3>Total Appointments</h3>
             <p>{{ upcomingAppointments.length + completedAppointments.length }}</p>
+          </div>
+          <div class="stat-back">
+            <ul>
+              <li *ngFor="let appointment of allAppointments">
+                {{ appointment.clientName }} - {{ appointment.appointmentDate | date: 'short' }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div (click)="navigateToAppointments()" class="stat">
-            <h3>Upcoming Appointments</h3>
+      </div>
+      <div (mouseenter)="showList('upcoming')" (mouseleave)="hideList('upcoming')" class="stat">
+        <div class="stat-content" [ngClass]="{'flipped': showUpcomingList}">
+          <div class="stat-front" >
+            <h3 *ngIf="upcomingAppointments.length > 0">Upcoming Appointments</h3>
+            <p *ngIf="upcomingAppointments.length === 0">No Upcoming Appointments</p>
             <p>{{ upcomingAppointments.length }}</p>
-            <p *ngIf="upcomingAppointments.length === 0">No upcoming appointments</p>
+          </div>
+          <div class="stat-back">
+            <ul>
+              <li *ngFor="let appointment of upcomingAppointments">
+                {{ appointment.clientName }} - {{ appointment.appointmentDate | date: 'short' }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div (click)="navigateToAppointments()" class="stat">
-            <h3>Completed Appointments</h3>
+      </div>
+      <div (mouseenter)="showList('completed')" (mouseleave)="hideList('completed')" class="stat">
+        <div class="stat-content" [ngClass]="{'flipped': showCompletedList}">
+          <div class="stat-front">
+            <h3 *ngIf="completedAppointments.length > 0">Completed Appointments</h3>
+            <p *ngIf="completedAppointments.length === 0">No Completed Appointments</p>
             <p>{{ completedAppointments.length }}</p>
-            <p *ngIf="completedAppointments.length === 0">No completed appointments</p>
+          </div>
+          <div class="stat-back">
+            <ul>
+              <li *ngFor="let appointment of completedAppointments">
+                {{ appointment.clientName }} - {{ appointment.appointmentDate | date: 'short' }}
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="charts-flex">
-        <div class="chart-container">
-            <canvas baseChart [data]="pieChartData" [type]="'pie'" [options]="pieChartOptions"></canvas>
-        </div>
+      <div class="chart-container">
+        <canvas baseChart [data]="pieChartData" [type]="'pie'" [options]="pieChartOptions"></canvas>
+      </div>
 
-        <div class="chart-container">
-            <canvas baseChart [data]="barChartData" [type]="'bar'" [options]="barChartOptions"></canvas>
-        </div>
+      <div class="chart-container">
+        <canvas baseChart [data]="barChartData" [type]="'bar'" [options]="barChartOptions"></canvas>
+      </div>
     </div>
+  </div>
 </div>

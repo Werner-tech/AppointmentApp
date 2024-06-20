@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Appointment } from 'src/app/models/Appointment.model';
@@ -8,9 +8,7 @@ import { Appointment } from 'src/app/models/Appointment.model';
   templateUrl: './app-edit-appointment-dialog.component.html',
   styleUrls: ['./app-edit-appointment-dialog.component.css']
 })
-
-
-export class EditAppointmentDialogComponent {
+export class EditAppointmentDialogComponent implements OnInit {
   title: string;
   appointment: Appointment;
 
@@ -20,6 +18,11 @@ export class EditAppointmentDialogComponent {
   ) {
     this.title = data.title;
     this.appointment = data.appointment;
+  }
+
+  ngOnInit(): void {
+    const username = localStorage.getItem('username') || '';
+    this.appointment.clientName = username;
   }
 
   onSubmit(form: NgForm) {

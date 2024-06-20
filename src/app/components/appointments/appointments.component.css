@@ -4,12 +4,38 @@
   flex-direction: column;
 }
 
+.mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-initial {
+  margin-right: 10px;
+  background-color: #ffffff;
+  color: #3f51b5; 
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
 .container {
   flex: 1;
   display: flex;
   flex-direction: column;
   margin: 20px;
   position: relative;
+  margin-top: 80px;
 }
 
 h2 {
@@ -64,5 +90,5 @@ th {
 }
 
 .mdc-data-table__row:last-child .mat-mdc-cell {
-  border-bottom:  1px solid #ddd !important
+  border-bottom: 1px solid #ddd !important;
 }

@@ -1,6 +1,15 @@
+<mat-toolbar color="primary">
+  <button [matTooltip]="'Back To Dashboard'" mat-icon-button (click)="goToDashboard()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span style="margin-left: 7px;">Appointments</span>
+  <span class="spacer"></span>
+  <span class="user-initial">{{ usernameInitial }}</span>
+  <button mat-button (click)="logout()">Logout</button>
+</mat-toolbar>
+
 <div class="container">
-  <h2>Appointments</h2>
-  <button mat-raised-button color="primary" class="add-button" (click)="openAddModal()">Add Appointment</button>
+  <button mat-raised-button color="accent" class="add-button" (click)="openAddModal()">Add Appointment</button>
   <div class="table-container">
     <table mat-table [dataSource]="appointments">
 

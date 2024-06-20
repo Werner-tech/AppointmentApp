@@ -3,7 +3,7 @@
   <div mat-dialog-content>
     <form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Client Name" [(ngModel)]="appointment.clientName" name="clientName" required>
+        <input matInput placeholder="Client Name" [(ngModel)]="appointment.clientName" name="clientName" required disabled>
         <mat-error *ngIf="appointmentForm.submitted && appointmentForm.controls['clientName']?.errors?.['required']">
           Client Name is required
         </mat-error>
@@ -24,7 +24,7 @@
       </mat-form-field>
       <div mat-dialog-actions>
         <button mat-raised-button color="basic" [mat-dialog-close]="false">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="!appointmentForm.valid" type="submit">Save</button>
+        <button mat-raised-button color="accent" [disabled]="!appointmentForm.valid" type="submit">Save</button>
       </div>
     </form>
   </div>
