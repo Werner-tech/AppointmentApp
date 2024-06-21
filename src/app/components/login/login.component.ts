@@ -14,7 +14,7 @@ export class LoginComponent {
   constructor(private router: Router, private snackBar: MatSnackBar) {}
 
   onSubmit() {
-    if (this.username.trim() !== '' && this.password === 'Ftorres@9') {
+    if (this.username.trim() !== '' && this.password === 'admin') {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', this.username);
       this.router.navigate(['/dashboard']);
